@@ -74,6 +74,7 @@ buffer."
 
 ;; ——— State ———————————————————————————————————————————————————————————————————
 
+;;;###autoload
 (evil-define-state lispy
   "An evil state for Lispy, a precision editing mode for Lisp."
   :tag "<L>"
@@ -84,12 +85,10 @@ buffer."
   :exit-hook (evil-lispy-state-exit)
   nil)
 
-;;;###autoload
 (defun evil-lispy-state-entry ()
   (remove-hook 'activate-mark-hook #'evil-visual-activate-hook t)
   (lispy-mode 1))
 
-;;;###autoload
 (defun evil-lispy-state-exit ()
   (when (region-active-p) (deactivate-mark))
   (add-hook 'activate-mark-hook #'evil-visual-activate-hook nil t)
