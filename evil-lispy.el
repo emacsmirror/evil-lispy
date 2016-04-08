@@ -6,6 +6,8 @@
 ;; URL: https://github.com/sp3ctum/evil-lispy
 ;; Version: 0.0.1
 ;; Keywords: lisp
+;; Package-Requires: (lispy)
+
 
 ;; This file is not part of GNU Emacs
 
