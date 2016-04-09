@@ -79,7 +79,7 @@ buffer."
   "An evil state for Lispy, a precision editing mode for Lisp."
   :tag "<L>"
   :message "Entering Lispy state!"
-  :cursor ("red" box)
+  :cursor ("orange" box)
   :suppress-keymap t
   :entry-hook (evil-lispy-state-entry)
   :exit-hook (evil-lispy-state-exit)
