@@ -58,20 +58,6 @@
 
 (put 'evil-define-state 'lisp-indent-function 'defun)
 
-;; ——— Customization ———————————————————————————————————————————————————————————
-
-(defgroup evil-lispy nil
-  "Evil integration with Lispy."
-  :group 'lispy)
-
-(defcustom evil-lispy-modified-operators t
-  "Set to t to use the `evil-lispy' versions of Vim operators like d, c, y, D,
-etc.  These provide a safe version that should respect the balance of the
-buffer."
-  :group 'evil-lispy
-  :type 'boolean)
-
-
 ;; ——— State ———————————————————————————————————————————————————————————————————
 
 ;;;###autoload
