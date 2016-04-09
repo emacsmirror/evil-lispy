@@ -11,3 +11,5 @@ Credits
 
 This started as a fork of [evil-lispy](https://github.com/nyobe/evil-lispy), so
 a lot of credit goes to that author as these packages share similar goals.
+
+Since then, forked from [bcarrell](https://github.com/bcarrell/evil-lispy).
