@@ -21,11 +21,11 @@ You can enter this mode *from normal mode* with the following commands:
 
 | Key Binding | Description                                                |
 |-------------+------------------------------------------------------------|
-| `(`         | jump to the previous parenthesis and enter evil-lispy-mode |
-| `)`         | same, but jump to the next parenthesis instead             |
-| `gv`        | select current symbol and enter evil-lispy-mode            |
-| `<i or <I`  | insert at the start of the current expression              |
-| `>i or >I`  | insert at the end                                          |
+| (           | jump to the previous parenthesis and enter evil-lispy-mode |
+| )           | same, but jump to the next parenthesis instead             |
+| gv          | select current symbol and enter evil-lispy-mode            |
+| <i or <I    | insert at the start of the current expression              |
+| >i or >I    | insert at the end                                          |
 
 * Credits
 Forked from [bcarrell/evil-lispy](https://github.com/bcarrell/evil-lispy).
