@@ -2,19 +2,20 @@ This package integrates the excellent [[https://github.com/abo-abo/lispy][lispy]
 Lispy works with different lisp modes, including Emacs Lisp and Clojure.
 
 * Goals and design philosophy
-** Lisp has a natural structure
-*** Natural to edit structurally
-*** Natural to navigate structurally
-** Intuitive for Evil / vim users
-*** `hjkl` for moving, `gv` to mark, `e` to eval.
-You now know the basics!
-** Natural and easy fallback to vanilla Evil editing
-*** If you panic, just hit `ESC` to return to normal mode
-*** You can still use e.g. Evil `()` text objects just fine.
-When you learn more of lispy, your productivity will only increase.
-** Modal editing is good for your health
-*** Lispy commands only apply when explicitly activated
-*** Less chance of munging your code unexpectedly
+- Lisp has a natural structure
+  - Natural to edit structurally
+  - Natural to navigate structurally
+- Intuitive for Evil / vim users
+  - `hjkl` for moving, `gv` to mark, `e` to eval.
+     You now know the basics!
+- Natural and easy fallback to vanilla Evil editing
+  - If you panic, just hit `ESC` to return to normal mode
+  - You can still use e.g. Evil `()` text objects just fine.
+     When you learn more of lispy, your productivity will only increase.
+- Modal editing is good for your health
+  - Lispy commands only apply when explicitly activated
+  - Less chance of munging your code unexpectedly
+
 * Key Bindings
 You can enter this mode *from normal mode* with the following commands:
 
