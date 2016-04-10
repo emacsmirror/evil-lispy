@@ -145,20 +145,6 @@ the current form.  DIRECTION must be either 'left or 'right."
   :keymap evil-lispy-mode-map
   :after-hook (evil-normal-state))
 
-;; ——— Text objects ————————————————————————————————————————————————————————————
-
-(evil-define-text-object evil-lispy--outer-form-object (&optional count beg end type)
-  (let ((bounds (lispy--bounds-list)))
-    (when bounds
-      (evil-range (car bounds) (cdr bounds)))))
-
-(evil-define-text-object evil-lispy--inner-form-object (&optional count beg end type)
-  (let ((bounds (lispy--bounds-list)))
-    (evil-range (1+ (car bounds)) (1- (cdr bounds)))))
-
-(define-key evil-inner-text-objects-map "f" 'evil-lispy--inner-form-object)
-(define-key evil-outer-text-objects-map "f" 'evil-lispy--outer-form-object)
-
 ;; ——— Operations ——————————————————————————————————————————————————————————————
 
 (defun evil-lispy-describe ()
