@@ -64,6 +64,9 @@
   "Evil integration with Lispy."
   :group 'lispy)
 
+(defcustom evil-lispy-cursor ("lawn green" box)
+  "the cursor used when in evil-lispy-mode")
+
 ;; ——— State ———————————————————————————————————————————————————————————————————
 
 ;;;###autoload
@@ -71,7 +74,7 @@
   "An evil state for Lispy, a precision editing mode for Lisp."
   :tag "<L>"
   :message "Entering evil-lispy state."
-  :cursor ("lawn green" box)
+  :cursor evil-lispy-cursor
   :suppress-keymap t
   :entry-hook (evil-lispy-state-entry)
   :exit-hook (evil-lispy-state-exit)
