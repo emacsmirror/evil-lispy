@@ -58,7 +58,11 @@
 
 (put 'evil-define-state 'lisp-indent-function 'defun)
 
-(defgroup evil-lispy-mode)
+;; ——— Customization ———————————————————————————————————————————————————————————
+
+(defgroup evil-lispy nil
+  "Evil integration with Lispy."
+  :group 'lispy)
 
 ;; ——— State ———————————————————————————————————————————————————————————————————
 
