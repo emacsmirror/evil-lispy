@@ -73,7 +73,7 @@
 (evil-define-state lispy
   "An evil state for Lispy, a precision editing mode for Lisp."
   :tag "<L>"
-  :message "Entering evil-lispy state."
+  :message "Entering evil-lispy state. Press ESC to get out."
   :cursor evil-lispy-cursor
   :suppress-keymap t
   :entry-hook (evil-lispy-state-entry)
