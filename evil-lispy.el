@@ -58,13 +58,15 @@
 
 (put 'evil-define-state 'lisp-indent-function 'defun)
 
+(defgroup evil-lispy-mode)
+
 ;; ——— State ———————————————————————————————————————————————————————————————————
 
 ;;;###autoload
 (evil-define-state lispy
   "An evil state for Lispy, a precision editing mode for Lisp."
   :tag "<L>"
-  :message "Entering Lispy state!"
+  :message "Entering evil-lispy state."
   :cursor ("lawn green" box)
   :suppress-keymap t
   :entry-hook (evil-lispy-state-entry)
