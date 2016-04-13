@@ -25,7 +25,7 @@ Here is a sales picth of what this mode thinks is best for you:
 
 * Key Bindings
 To learn lispy, I suggest you see these things in order:
-- first read [[https://github.com/abo-abo/lispy][lispy introduction]] to get an overview of what lispy offers to you
+- first read the [[https://github.com/abo-abo/lispy][lispy introduction]] to get an overview of what lispy offers to you
 - delve into the [[http://oremacs.com/lispy/#lispy-different][lispy function reference]] to get new ideas and learn new things
 
 All lispy structural editing commands are available when evil-lispy-mode is activated.
