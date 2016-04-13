@@ -33,24 +33,6 @@
 ;; this package redefines a few Lispy bindings, which can be turned on or off
 ;; by a variable.
 
-;; In addition to providing the Lispy state, this package will do its best to
-;; keep your buffer balanced while writing Lisp code.  To that end, it will
-;; advise common Evil operations and block them if they will break your buffer
-;; or modify them slightly in order to keep everything balanced.
-;;
-;; It also provides several useful keybindings for editing Lisp in Normal mode.
-;;
-;; There are several ways to activate Lispy state, denoted as <LISP> in your
-;; modeline, all from Normal mode:
-;;
-;; ) will hop to the right paren and activate Lispy state
-;; ( will hop to the left paren and activate Lispy state
-;; >i will hop to the right paren and activate Lispy state
-;; <i will hop to the left paren and activate Lispy state
-;; gv will mark the current symbol and activate Lispy state
-
-;; Once in Lispy state, use ESC to return to Normal mode.
-
 ;;; Code:
 
 (require 'evil)

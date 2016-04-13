@@ -2,6 +2,11 @@ This package integrates the excellent [[https://github.com/abo-abo/lispy][lispy]
 Lispy works with different lisp modes, including Emacs Lisp and Clojure.
 
 * Goals and design philosophy
+
+The goal is to encourage a workflow where you can hop between ~lispy-state~ for
+making structured edits using lispy bindings and the rest of the standard Evil
+states for general editing.
+
 - Lisp has a natural structure
   - Natural to edit structurally
   - Natural to navigate structurally
