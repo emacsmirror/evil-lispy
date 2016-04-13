@@ -1,4 +1,4 @@
-[[https://www.emacswiki.org/pics/static/EvilLogo?.jpg]] [[https://raw.githubusercontent.com/abo-abo/lispy/master/images/lispy-logo.png]]
+[[https://www.emacswiki.org/pics/static/EvilLogo?pls=.jpg]] [[https://raw.githubusercontent.com/abo-abo/lispy/master/images/lispy-logo.png]]
 
 This package integrates the excellent [[https://github.com/abo-abo/lispy][lispy]] lisp editing package to Evil.
 Lispy works with different lisp modes, like Emacs Lisp and Clojure (and others!).
