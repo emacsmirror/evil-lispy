@@ -3,9 +3,9 @@ Lispy works with different lisp modes, like Emacs Lisp and Clojure (and others!)
 
 * Goals and design philosophy
 
-The goal is to encourage a workflow where you can hop between ~lispy-state~ for
-making structured edits using lispy bindings, and the rest of the standard Evil
-states for general editing.
+The goal is to encourage a workflow where you use the standard ~evil-mode~ for
+general editing, and enter ~evil-lispy-mode~ to make structural edits using
+lispy bindings.
 
 Here is a sales picth of what this mode thinks is best for you:
 
@@ -24,7 +24,12 @@ Here is a sales picth of what this mode thinks is best for you:
   - Less chance of munging your code unexpectedly
 
 * Key Bindings
-To use lispy structural editing commands, you must first enter ~evil-lispy-mode~.
+To learn lispy, I suggest you see these things in order:
+- first read [[https://github.com/abo-abo/lispy][lispy introduction]] to get an overview of what lispy offers to you
+- delve into the [[http://oremacs.com/lispy/#lispy-different][lispy function reference]] to get new ideas and learn new things
+
+All lispy structural editing commands are available when evil-lispy-mode is activated.
+So to use these commands, you must first enter ~evil-lispy-mode~.
 
 ** Normal mode
 Enter ~evil-lispy-mode~ mode *from normal mode* with the following commands:
