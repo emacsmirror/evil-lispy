@@ -173,6 +173,7 @@ the current form.  DIRECTION must be either 'left or 'right."
   "{" #'lispy-braces
   ")" #'lispy-right-nostring
   "\"" #'lispy-quotes
+  ";" #'lispy-comment
   (kbd "DEL") #'lispy-delete-backward
   (kbd "M-k") #'lispy-kill-sentence
   (kbd "C-1") #'lispy-describe-inline
