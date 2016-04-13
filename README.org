@@ -4,8 +4,10 @@ Lispy works with different lisp modes, including Emacs Lisp and Clojure.
 * Goals and design philosophy
 
 The goal is to encourage a workflow where you can hop between ~lispy-state~ for
-making structured edits using lispy bindings and the rest of the standard Evil
+making structured edits using lispy bindings, and the rest of the standard Evil
 states for general editing.
+
+Here is a sales picth of what this mode thinks is best for you:
 
 - Lisp has a natural structure
   - Natural to edit structurally
@@ -22,8 +24,10 @@ states for general editing.
   - Less chance of munging your code unexpectedly
 
 * Key Bindings
-You can enter this mode *from normal mode* with the following commands:
+To use lispy structural editing commands, you must first enter ~evil-lispy-mode~.
 
+** Normal mode
+Enter this mode *from normal mode* with the following commands:
 | Key Binding | Description                                                |
 |-------------+------------------------------------------------------------|
 | ~(~         | jump to the previous parenthesis and enter evil-lispy-mode |
@@ -31,6 +35,28 @@ You can enter this mode *from normal mode* with the following commands:
 | ~gv~        | select current symbol and enter evil-lispy-mode            |
 | ~<i or <I~  | insert at the start of the current expression              |
 | ~>i or >I~  | insert at the end                                          |
+
+Other special functionality only available in normal mode:
+| Key Binding | Description                                                |
+|-------------+------------------------------------------------------------|
+| ~K~         | Describe function inline (not available in all lisp modes) |
+| ~Control-1~ | Same thing                                                 |
+| ~Control-2~ | Display argument list (not available in all lisp modes)    |
+
+** Visual mode
+You can also select anything in ~evil-visual-mode~ and hit ~RET~. This allows
+you to manipulate the selected area as a lispy selection.
+
+** Insert mode
+Unline lispy, this mode will allow you to write any characters even when point
+is at a "special position" in lispy terms.
+
+These bindings are active in *insert mode*:
+| Key Binding | Description                                                                   |
+|-------------+-------------------------------------------------------------------------------|
+| ~}~         | Insert [] brackets                                                            |
+| ~)~         | Jump out of the current sexp, stay in insert mode                             |
+| ~;~         | Comment entire line, or end of line. Toggles autoload comments for elisp too. |
 
 * Credits
 Forked from [[https://github.com/bcarrell/evil-lispy][bcarrell/evil-lispy]].
