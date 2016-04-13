@@ -180,7 +180,12 @@ the current form.  DIRECTION must be either 'left or 'right."
   (kbd "DEL") #'lispy-delete-backward
   (kbd "M-k") #'lispy-kill-sentence
   (kbd "C-1") #'lispy-describe-inline
-  (kbd "C-2") #'lispy-arglist-inline)
+  (kbd "C-2") #'lispy-arglist-inline
+
+  "i" #'special-lispy-flow
+  "f" #'special-lispy-tab
+  "o" #'special-lispy-different
+  "d" #'special-lispy-other-mode)
 
 (provide 'evil-lispy)
 
