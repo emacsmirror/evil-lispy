@@ -59,9 +59,9 @@ These bindings are active in *insert mode*:
 | ~;~         | Comment entire line, or end of line. Toggles autoload comments for elisp too.  |
 
 These bindings are changed from their lispy defaults. Notice how most have a useful mnemonic.
-| [[http://oremacs.com/lispy/#lispy-flow][i]] | Go _in_ the current expression, or move past it if not possible   |
-| [[http://oremacs.com/lispy/#lispy-tab][f]] | Indent or _fix_ the current expression                            |
-| [[http://oremacs.com/lispy/#lispy-different][o]] | Switch to the _other_ side of the current expression or selection |
+| [[http://oremacs.com/lispy/#lispy-flow][i]] | Go ~in~ the current expression, or move past it if not possible   |
+| [[http://oremacs.com/lispy/#lispy-tab][f]] | Indent or ~fix~ the current expression                            |
+| [[http://oremacs.com/lispy/#lispy-different][o]] | Switch to the ~other~ side of the current expression or selection |
 | [[http://oremacs.com/lispy/#lispy-other-mode][d]] | Next ~hjkl~ will move the current expression                      |
 
 * Credits
