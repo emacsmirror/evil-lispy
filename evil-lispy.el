@@ -89,7 +89,7 @@ the current form.  DIRECTION must be either 'left or 'right."
   "Enters `lispy-state' with the current symbol under point marked."
   (interactive)
   (evil-lispy-state)
-  (lispy-mark))
+  (lispy-mark-symbol))
 
 (defun evil-lispy-enter-visual-state ()
   "If we're in visual state, enter `lispy-state' with the current region
