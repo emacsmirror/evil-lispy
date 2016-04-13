@@ -29,7 +29,7 @@ To learn lispy, I suggest you see these things in order:
 - delve into the [[http://oremacs.com/lispy/#lispy-different][lispy function reference]] to get new ideas and learn new things
 
 All lispy structural editing commands are available when evil-lispy-mode is activated.
-So to use these commands, you must first enter ~evil-lispy-mode~.
+So to use these commands, you must first enter evil-lispy-mode.
 
 ** Normal mode
 Enter ~evil-lispy-mode~ mode *from normal mode* with the following commands:
