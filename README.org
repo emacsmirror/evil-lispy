@@ -1,5 +1,5 @@
 This package integrates the excellent [[https://github.com/abo-abo/lispy][lispy]] lisp editing package to Evil.
-Lispy works with different lisp modes, including Emacs Lisp and Clojure.
+Lispy works with different lisp modes, like Emacs Lisp and Clojure (and others!).
 
 * Goals and design philosophy
 
