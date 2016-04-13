@@ -138,9 +138,9 @@ the current form.  DIRECTION must be either 'left or 'right."
 
 (defun evil-lispy-describe ()
   (interactive)
-  (save-mark-and-excursion
-   (lispy-mark-symbol)
-   (lispy-describe-inline)))
+  (save-excursion
+    (lispy-mark-symbol)
+    (lispy-describe-inline)))
 
 ;; ——— Keys ————————————————————————————————————————————————————————————————————
 
