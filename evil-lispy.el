@@ -169,7 +169,10 @@ the current form.  DIRECTION must be either 'left or 'right."
 ;; ——— Insert operations ———————————————
 (evil-define-key 'insert evil-lispy-mode-map
   "(" #'lispy-parens
+
   "[" #'lispy-brackets
+  "}" #'lispy-brackets
+
   "{" #'lispy-braces
   ")" #'lispy-right-nostring
   "\"" #'lispy-quotes
