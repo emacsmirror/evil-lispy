@@ -152,9 +152,7 @@ the current form.  DIRECTION must be either 'left or 'right."
   ")" #'evil-lispy-enter-state-right
   "gv" #'evil-lispy-enter-marked-state
   "<i" #'evil-lispy-enter-insert-state-left
-  "<I" #'evil-lispy-enter-insert-state-left
-  ">i" #'evil-lispy-enter-insert-state-right
-  ">I" #'evil-lispy-enter-insert-state-right)
+  ">A" #'evil-lispy-enter-insert-state-right)
 
 (evil-define-key 'visual evil-lispy-mode-map
   (kbd "RET") #'evil-lispy-enter-visual-state)
