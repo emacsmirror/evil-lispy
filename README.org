@@ -27,7 +27,7 @@ Here is a sales picth of what this mode thinks is best for you:
 To use lispy structural editing commands, you must first enter ~evil-lispy-mode~.
 
 ** Normal mode
-Enter this mode *from normal mode* with the following commands:
+Enter ~evil-lispy-mode~ mode *from normal mode* with the following commands:
 | Key Binding | Description                                                |
 |-------------+------------------------------------------------------------|
 | ~(~         | jump to the previous parenthesis and enter evil-lispy-mode |
@@ -44,8 +44,12 @@ Other special functionality only available in normal mode:
 | ~Control-2~ | Display argument list (not available in all lisp modes)    |
 
 ** Visual mode
-You can also select anything in ~evil-visual-mode~ and hit ~RET~. This allows
-you to manipulate the selected area as a lispy selection.
+You can select anything in ~evil-visual-mode~ and use these commands:
+
+| Key Binding | Description                              |
+|-------------+------------------------------------------|
+| ~RET~       | Manipulate the selection with lispy-mode |
+
 
 ** Insert mode
 Unline lispy, this mode will allow you to write any characters even when point
