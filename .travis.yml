@@ -12,4 +12,4 @@ before_install:
   - export PATH="$HOME/.cask/bin:$PATH"
   - cask
 script:
-  - run-tests.sh
+  - ./run-tests.sh
