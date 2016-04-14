@@ -1,4 +1,7 @@
+(source gnu)
 (source melpa)
+
+;; read metadata from this file's package headers
 (package-file "evil-lispy.el")
 
 ;; https://github.com/melpa/melpa#recipe-format
