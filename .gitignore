@@ -1,5 +1,7 @@
 # Compiled
 *.elc
 
+dist/
+
 # Packaging
 .cask
