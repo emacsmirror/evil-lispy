@@ -1,3 +1,10 @@
 #!/usr/bin/env bash
 
-cask exec buttercup -L .
+TERM=dumb SHELL=sh cask exec emacs \
+    -Q \
+    -batch \
+    -f package-initialize \
+    -l buttercup \
+    -l "tests/setup.el" \
+    -f buttercup-run-discover \
+    "tests/"
