@@ -25,11 +25,22 @@
 
              ,@test-forms
 
-             ;; show new point position in output
-             (insert "|")
+             (let ((p (point))
+                   (m (mark)))
+               ;; show mark as well (other side of selection, if any)
+               (goto-char p)
+               (insert "|")
 
-             (->> (buffer-substring-no-properties (point-min)
-                                                  (point-max))
-                  (s-split "\n")))
+               ;; show mark as well (other side of selection, if any)
+               (when mark-active
+                 (goto-char (mark))
+                 (insert "~")))
+
+             (let ((result-lines (->> (buffer-substring-no-properties (point-min)
+                                                                      (point-max))
+                                      (s-split "\n"))))
+               (if (= 1 (length result-lines))
+                   (-first-item result-lines)
+                 result-lines)))
          (when (buffer-name temp-buffer)
            (kill-buffer temp-buffer))))))
