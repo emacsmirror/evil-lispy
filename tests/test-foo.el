@@ -1,6 +1,5 @@
 
 (describe "with-test-buffer macro"
-
   (it "inserts buffer contents and returns them"
     (expect (with-test-buffer "hello world|")
             :to-equal "hello world|"))
@@ -38,3 +37,14 @@
     (expect (with-test-buffer "(hello the|re world)"
               (evil-lispy-enter-marked-state))
             :to-equal "(hello ~there| world)")))
+
+(describe "enter lispy-mode at edges of the current expression"
+  (it "before an expression"
+    (expect (with-test-buffer "(an expression| here)"
+              (evil-lispy-enter-state-left))
+            :to-equal "|(an expression here)"))
+
+  (it "after an expression"
+    (expect (with-test-buffer "(an expression| here)"
+              (evil-lispy-enter-state-right))
+            :to-equal "(an expression here)|")))
