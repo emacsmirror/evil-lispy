@@ -36,7 +36,18 @@
   (it "selects an expression"
     (expect (with-test-buffer "(hello the|re world)"
               (evil-lispy-enter-marked-state))
-            :to-equal "(hello ~there| world)")))
+            :to-equal "(hello ~there| world)"))
+
+  (it "allows entering from evil-visual-state"
+    (expect (with-test-buffer "some words |in the buffer"
+              ;; select the current word
+              (evil-visual-state)
+              (evil-inner-word)
+              (evil-lispy-enter-visual-state)
+
+              (insert (prin1-to-string lispy-mode)))
+            ;; oh dear, this is one of the worst hacks ever
+            :to-equal "some words ~int| the buffer")))
 
 (describe "enter lispy-mode at edges of the current expression"
   (it "before an expression"
