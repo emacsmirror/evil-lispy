@@ -55,7 +55,6 @@
   :tag "<L>"
   :message "Entering evil-lispy state. Press ESC to get out of lispy."
   :cursor evil-lispy-cursor
-  :suppress-keymap t
   :entry-hook (evil-lispy-state-entry)
   :exit-hook (evil-lispy-state-exit)
   nil)

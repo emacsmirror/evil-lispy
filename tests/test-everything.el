@@ -61,3 +61,11 @@
     (expect (with-test-buffer "(an expression| here)"
               (evil-lispy-enter-state-right))
             :to-equal "(an expression here)|")))
+
+(describe "inserting plain text"
+  (it "inserts characters without any specific bindings"
+    (expect (with-test-buffer "|"
+              (evil-lispy-enter-state-right)
+              (ot--keyboard-input
+               (ot--type "Y")))
+            :to-equal "Y|")))
