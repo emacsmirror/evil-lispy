@@ -68,7 +68,7 @@ is at a "special position" in lispy terms.
 These bindings are active in *insert mode*:
 | Key Binding | Description                                                                    |
 |-------------+--------------------------------------------------------------------------------|
-| ~}~         | Insert [] brackets                                                             |
+| ~}~         | Insert [ ] brackets                                                            |
 | ~)~         | Jump out of the current sexp, stay in insert mode                              |
 | ~;~         | Comment entire line, or end of line. Toggles autoload comments for elisp too.  |
 
