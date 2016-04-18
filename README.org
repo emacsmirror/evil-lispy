@@ -1,4 +1,5 @@
 [[./img/EvilLogo.png]] [[./img/lispy-logo.png]]
+
 [[https://travis-ci.org/sp3ctum/evil-lispy.svg?branch=master]]
 
 This package integrates the excellent [[https://github.com/abo-abo/lispy][lispy]] lisp editing package to Evil.
