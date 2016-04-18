@@ -62,6 +62,19 @@
               (evil-lispy-enter-state-right))
             :to-equal "(an expression here)|")))
 
+(describe "insert-mode -> evil-lispy-mode"
+  (it "jumps out of the current sexp"
+    (expect (with-test-buffer "(expression| one)\n(expression two)"
+              (evil-insert-state)
+              (ot--keyboard-input
+               ;; jump out, go down an expression and enter a new line
+               (ot--type ")j")
+               (ot--press-key "RET")
+               (ot--type "(expression three)")))
+            :to-equal (list "(expression one)"
+                            "(expression two)"
+                            "(expression three)|"))))
+
 (describe "inserting plain text"
   (it "inserts characters without any specific bindings"
     (expect (with-test-buffer "|"

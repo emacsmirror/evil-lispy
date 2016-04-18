@@ -123,6 +123,12 @@ the current form.  DIRECTION must be either 'left or 'right."
 (fset 'evil-lispy-enter-insert-state-right
       (evil-lispy-enter-insert-state 'right 'forward))
 
+(defun evil-lispy-insert-to-lispy (arg)
+  (interactive "p")
+  (if (lispy--in-string-or-comment-p)
+      (self-insert-command arg)
+    (evil-lispy-enter-state-right)))
+
 ;; ——— Mode ————————————————————————————————————————————————————————————————————
 
 (defvar evil-lispy-mode-map (make-sparse-keymap))
@@ -171,7 +177,7 @@ the current form.  DIRECTION must be either 'left or 'right."
   "}" #'lispy-brackets
 
   "{" #'lispy-braces
-  ")" #'lispy-right-nostring
+  ")" #'evil-lispy-insert-to-lispy
   "\"" #'lispy-quotes
   ";" #'lispy-comment
   (kbd "DEL") #'lispy-delete-backward
