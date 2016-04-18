@@ -46,7 +46,9 @@
               (evil-lispy-enter-visual-state)
 
               (insert (prin1-to-string lispy-mode)))
-            ;; oh dear, this is one of the worst hacks ever
+            ;; oh dear, this is one of the worst hacks ever.
+            ;; lispy-mode should be t at this point, so inserting it will alter
+            ;; the buffer contents.
             :to-equal "some words ~int| the buffer")))
 
 (describe "enter lispy-mode at edges of the current expression"
