@@ -11,7 +11,7 @@ The goal is to encourage a workflow where you use the standard ~evil-mode~ for
 general editing, and enter ~evil-lispy-mode~ to make structural edits using
 lispy bindings.
 
-Here is a sales picth of what this mode thinks is best for you:
+Here is a sales pitch of what this mode thinks is best for you:
 
 - Lisp has a natural structure
   - Natural to edit structurally
