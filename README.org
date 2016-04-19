@@ -62,8 +62,8 @@ You can select anything in ~evil-visual-mode~ and use these commands:
 
 
 ** Insert mode
-Unline lispy, this mode will allow you to write any characters even when point
-is at a "special position" in lispy terms.
+Unline lispy, this mode will allow you to write any characters in insert-mode
+even when point is at a "special position" in lispy terms.
 
 These bindings are active in *insert mode*:
 | Key Binding | Description                                                                    |
