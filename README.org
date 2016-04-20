@@ -62,8 +62,9 @@ You can select anything in ~evil-visual-mode~ and use these commands:
 
 
 ** Insert mode
-Unline lispy, this mode will allow you to write any characters in insert-mode
-even when point is at a "special position" in lispy terms.
+Reminder:
+In standard insert-mode, you can write any characters normally. Only when you
+explicitly activate evil-lispy-mode, lispy commands become available.
 
 These bindings are active in *insert mode*:
 | Key Binding | Description                                                                    |
@@ -72,6 +73,7 @@ These bindings are active in *insert mode*:
 | ~)~         | Jump out of the current sexp, stay in insert mode                              |
 | ~;~         | Comment entire line, or end of line. Toggles autoload comments for elisp too.  |
 
+** Lispy rebinds
 These bindings are changed from their lispy defaults. Notice how most have a useful mnemonic.
 | [[http://oremacs.com/lispy/#lispy-flow][i]] | Go ~in~ the current expression, or move past it if not possible   |
 | [[http://oremacs.com/lispy/#lispy-tab][f]] | ~fix~ indentation of the current expression                       |
