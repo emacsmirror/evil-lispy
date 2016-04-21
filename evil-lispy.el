@@ -123,11 +123,22 @@ the current form.  DIRECTION must be either 'left or 'right."
 (fset 'evil-lispy-enter-insert-state-right
       (evil-lispy-enter-insert-state 'right 'forward))
 
-(defun evil-lispy-insert-to-lispy (arg)
-  (interactive "p")
-  (if (lispy--in-string-or-comment-p)
-      (self-insert-command arg)
-    (evil-lispy-enter-state-right)))
+(defmacro evil-lispy-defnonstring-action (function-name
+                                          action
+                                          &rest args-to-action)
+  "Define a function that will insert the pressed key in comments and strings,
+or call ACTION (a function) otherwise, with ARGS-TO-ACTION."
+  (declare (indent 1))
+  `(defun ,function-name (arg)
+     (interactive "p")
+     (if (lispy--in-string-or-comment-p)
+         (self-insert-command arg)
+       (apply (quote ,action) ,args-to-action))))
+
+(evil-lispy-defnonstring-action evil-lispy-insert-to-lispy-right
+  evil-lispy-enter-state-right)
+(evil-lispy-defnonstring-action evil-lispy-insert-to-lispy-left
+  evil-lispy-enter-state-left)
 
 ;; ——— Mode ————————————————————————————————————————————————————————————————————
 
@@ -177,9 +188,14 @@ the current form.  DIRECTION must be either 'left or 'right."
   "}" #'lispy-brackets
 
   "{" #'lispy-braces
-  ")" #'evil-lispy-insert-to-lispy
   "\"" #'lispy-quotes
   ";" #'lispy-comment
+
+  ;; ( should always insert parentheses
+  ")" #'evil-lispy-insert-to-lispy-right
+  "[" #'evil-lispy-insert-to-lispy-left
+  "]" #'evil-lispy-insert-to-lispy-right
+
   (kbd "DEL") #'lispy-delete-backward
   (kbd "M-k") #'lispy-kill-sentence
   (kbd "C-1") #'lispy-describe-inline
