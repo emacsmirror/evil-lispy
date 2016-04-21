@@ -14,8 +14,8 @@
            (shut-up
              (switch-to-buffer temp-buffer)
              (evil-mode)
-             (evil-lispy-mode)
              (emacs-lisp-mode)
+             (evil-lispy-mode)
 
              (insert ,contents)
 
