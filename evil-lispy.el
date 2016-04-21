@@ -155,7 +155,7 @@ the current form.  DIRECTION must be either 'left or 'right."
 (evil-define-key 'normal evil-lispy-mode-map
   "(" #'evil-lispy-enter-state-left
   ")" #'evil-lispy-enter-state-right
-  "gv" #'evil-lispy-enter-marked-state
+  "mv" #'evil-lispy-enter-marked-state
   "<i" #'evil-lispy-enter-insert-state-left
   ">A" #'evil-lispy-enter-insert-state-right)
 
