@@ -82,3 +82,13 @@
               (ot--keyboard-input
                (ot--type "Y")))
             :to-equal "Y|")))
+
+(describe "lispy interop"
+  (it "allows repeating commands with a count, like evil/vim"
+    (expect (with-test-buffer "(expression| one)\n(expression two)\n(expression three)"
+              (ot--keyboard-input
+               (ot--type ")2j")))
+            :to-equal
+            '("(expression one)"
+              "(expression two)"
+              "(expression three)|"))))

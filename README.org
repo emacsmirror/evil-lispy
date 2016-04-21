@@ -80,6 +80,11 @@ These bindings are changed from their lispy defaults. Notice how most have a use
 | [[http://oremacs.com/lispy/#lispy-different][o]] | Switch to the ~other~ side of the current expression or selection |
 | [[http://oremacs.com/lispy/#lispy-other-mode][d]] | Next ~hjkl~ will move the current expression                      |
 
+** Miscellaneous
+In lispy, using ~C-u 2j~ will go down two sexps. To get the same thing in
+evil-lispy, you can use 2j (think evil/vim).
+
+
 * Credits
 Forked from [[https://github.com/bcarrell/evil-lispy][bcarrell/evil-lispy]].
 Many, many thanks to ~bcarrell~ for his awesome work on this.
