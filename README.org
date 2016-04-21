@@ -66,12 +66,12 @@ Reminder:
 In standard insert-mode, you can write any characters normally. Only when you
 explicitly activate evil-lispy-mode, lispy commands become available.
 
-These bindings are active in *insert mode*:
-| Key Binding | Description                                                                    |
-|-------------+--------------------------------------------------------------------------------|
-| ~}~         | Insert [ ] brackets                                                            |
-| ~)~         | Jump out of the current sexp, stay in insert mode                              |
-| ~;~         | Comment entire line, or end of line. Toggles autoload comments for elisp too.  |
+These special bindings are active in *insert mode*:
+| Key Binding | Description                                                                   |
+|-------------+-------------------------------------------------------------------------------|
+| ~}~         | Insert [ ] brackets                                                           |
+| ~)~         | Jump out of the current sexp, enter lispy-mode                                |
+| ~;~         | Comment entire line, or end of line. Toggles autoload comments for elisp too. |
 
 ** Lispy rebinds
 These bindings are changed from their lispy defaults. Notice how most have a useful mnemonic.
