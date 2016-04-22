@@ -4,46 +4,70 @@
 (require 's)
 (require 'shut-up)
 
+(defun buffer-status-as-string ()
+  (let ((p (point))
+        (m (mark)))
+    ;; show mark as well (other side of selection, if any)
+    (goto-char p)
+    (insert "|")
+
+    ;; show mark as well (other side of selection, if any)
+    (when mark-active
+      (goto-char (mark))
+      (insert "~")))
+
+  (let ((result-lines (->> (buffer-substring-no-properties (point-min)
+                                                           (point-max))
+                           (s-split "\n"))))
+    (if (= 1 (length result-lines))
+        (-first-item result-lines)
+      result-lines)))
+
 (defmacro with-test-buffer (contents &rest test-forms)
   "This awesome macro is adapted (borrowed) from
   https://github.com/abo-abo/lispy/blob/master/lispy-test.el#L15"
   (declare (indent 1))
-  `(let ((temp-buffer (generate-new-buffer "evil-lispy-test-buffer")))
-     (save-window-excursion
-       (unwind-protect
-           (shut-up
-             (switch-to-buffer temp-buffer)
-             (evil-mode)
-             (emacs-lisp-mode)
-             (evil-lispy-mode)
+  `(progn
+     (-when-let (b (get-buffer "evil-lispy-test-buffer"))
+       (kill-buffer b))
+     (let ((temp-buffer (get-buffer-create "evil-lispy-test-buffer")))
+       (save-window-excursion
+         (shut-up
+           (switch-to-buffer temp-buffer)
+           (evil-mode)
+           (emacs-lisp-mode)
+           (evil-lispy-mode)
 
-             (insert ,contents)
+           (insert ,contents)
 
-             (evil-goto-first-line)
-             (when (search-forward "|")
-               (backward-delete-char 1))
+           (evil-goto-first-line)
+           (when (search-forward "|")
+             (backward-delete-char 1))
 
-             ,@test-forms
+           ,@test-forms
 
-             (let ((p (point))
-                   (m (mark)))
-               ;; show mark as well (other side of selection, if any)
-               (goto-char p)
-               (insert "|")
+           temp-buffer)))))
 
-               ;; show mark as well (other side of selection, if any)
-               (when mark-active
-                 (goto-char (mark))
-                 (insert "~")))
+(buttercup-define-matcher :to-have-buffer-contents (test-buffer
+                                                    expected-contents)
+  (with-current-buffer test-buffer
+    (let ((contents (buffer-status-as-string)))
+      (buttercup--apply-matcher :to-equal `(,contents ,expected-contents)))))
 
-             (let ((result-lines (->> (buffer-substring-no-properties (point-min)
-                                                                      (point-max))
-                                      (s-split "\n"))))
-               (if (= 1 (length result-lines))
-                   (-first-item result-lines)
-                 result-lines)))
-         (when (buffer-name temp-buffer)
-           (kill-buffer temp-buffer))))))
+(buttercup-define-matcher :to-be-in-lispy-mode (test-buffer)
+  (with-current-buffer test-buffer
+    (buttercup--apply-matcher :to-be-truthy `(,lispy-mode))))
+
+(defmacro -doto (x &rest forms)
+  "todo document"
+  (let ((gx (gensym)))
+    `(let ((,gx ,x))
+       ,@(-map (lambda (f)
+                 (if (sequencep f)
+                     `(,(-first-item f) ,gx ,@(rest f))
+                   `(funcall f ,gx)))
+               forms)
+       ,gx)))
 
 ;; these are borrowed from omnisharp-emacs
 ;;
