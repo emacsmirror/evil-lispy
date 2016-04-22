@@ -58,16 +58,16 @@
   (with-current-buffer test-buffer
     (buttercup--apply-matcher :to-be-truthy `(,lispy-mode))))
 
-(defmacro -doto (x &rest forms)
+(defmacro -doto (eval-initial-value &rest forms)
   "todo document"
-  (let ((gx (gensym)))
-    `(let ((,gx ,x))
-       ,@(-map (lambda (f)
-                 (if (sequencep f)
-                     `(,(-first-item f) ,gx ,@(rest f))
-                   `(funcall f ,gx)))
-               forms)
-       ,gx)))
+  (let ((retval (gensym)))
+    `(let ((,retval ,eval-initial-value))
+       ,@(mapcar (lambda (form)
+                   (if (sequencep form)
+                       `(,(-first-item form) ,retval ,@(rest form))
+                     `(funcall form ,retval)))
+                 forms)
+       ,retval)))
 
 ;; these are borrowed from omnisharp-emacs
 ;;
