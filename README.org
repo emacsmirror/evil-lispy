@@ -33,14 +33,14 @@ Here is a sales pitch of what this mode thinks is best for you:
 Available from MELPA.
 
 #+BEGIN_SRC emacs-lisp
-M-x package-install evil-lispy
+  ;; M-x package-install evil-lispy
 
-;; in your config, load the code with e.g. require
-(require 'evil-lispy)
+  ;; in your config, load the code with e.g. require
+  (require 'evil-lispy)
 
-;; make evil-lispy start in the modes you want
-(add-hook 'emacs-lisp-mode-hook #'evil-lispy-mode)
-(add-hook 'clojure-mode-hook #'evil-lispy-mode)
+  ;; make evil-lispy start in the modes you want
+  (add-hook 'emacs-lisp-mode-hook #'evil-lispy-mode)
+  (add-hook 'clojure-mode-hook #'evil-lispy-mode)
 #+END_SRC
 
 * Key Bindings
