@@ -32,21 +32,20 @@
        (kill-buffer b))
      (let ((temp-buffer (get-buffer-create "evil-lispy-test-buffer")))
        (save-window-excursion
-         (shut-up
-           (switch-to-buffer temp-buffer)
-           (evil-mode)
-           (emacs-lisp-mode)
-           (evil-lispy-mode)
+         (switch-to-buffer temp-buffer)
+         (emacs-lisp-mode)
+         (evil-mode)
+         (evil-lispy-mode)
 
-           (insert ,contents)
+         (insert ,contents)
 
-           (evil-goto-first-line)
-           (when (search-forward "|")
-             (backward-delete-char 1))
+         (evil-goto-first-line)
+         (when (search-forward "|")
+           (backward-delete-char 1))
 
-           ,@test-forms
+         ,@test-forms
 
-           temp-buffer)))))
+         temp-buffer))))
 
 (buttercup-define-matcher :to-have-buffer-contents (test-buffer
                                                     expected-contents)
