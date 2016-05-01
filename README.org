@@ -43,8 +43,8 @@ Enter ~evil-lispy-mode~ mode *from normal mode* with the following commands:
 | ~(~         | jump to the previous parenthesis and enter evil-lispy-mode |
 | ~)~         | same, but jump to the next parenthesis instead             |
 | ~mv~        | select current symbol/expression and enter evil-lispy-mode |
-| ~<i~        | insert at the start, inside ~($ foo)~                      |
-| ~>A~        | insert at the end, inside ~(foo $)~                        |
+| ~<i~        | insert at the start, inside, like so: ~($ foo)~            |
+| ~>A~        | insert at the end, inside, like so: ~(foo $)~              |
 
 Other special functionality only available in normal mode:
 | Key Binding | Description                                                |
