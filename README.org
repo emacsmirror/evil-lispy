@@ -1,6 +1,7 @@
 [[./img/EvilLogo.png]] [[./img/lispy-logo.png]]
 
 [[https://travis-ci.org/sp3ctum/evil-lispy.svg?branch=master]]
+[[http://melpa.org/#/evil-lispy][file:http://melpa.org/packages/evil-lispy-badge.svg]]
 
 This package integrates the excellent [[https://github.com/abo-abo/lispy][lispy]] lisp editing package to Evil.
 Lispy works with different lisp modes, like Emacs Lisp and Clojure (and others!).
@@ -28,6 +29,19 @@ Here is a sales pitch of what this mode thinks is best for you:
   - Lispy commands only apply when explicitly activated
   - Less chance of munging your code unexpectedly
 
+* Installation
+Available from MELPA. Do or similar.
+Then in your configuration you need to add
+```lisp
+M-x package-install evil-lispy
+
+;; in your config, load the code with e.g. require
+(require 'evil-lispy)
+
+;; make evil-lispy start in the modes you want
+(add-hook 'emacs-lisp-mode-hook #'evil-lispy-mode)
+(add-hook 'clojure-mode-hook #'evil-lispy-mode)
+```
 * Key Bindings
 To learn lispy, I suggest you see these things in order:
 - first read the [[https://github.com/abo-abo/lispy][lispy introduction]] to get an overview of what lispy offers to you
