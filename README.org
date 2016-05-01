@@ -32,7 +32,8 @@ Here is a sales pitch of what this mode thinks is best for you:
 * Installation
 Available from MELPA. Do or similar.
 Then in your configuration you need to add
-```lisp
+
+#+BEGIN_SRC emacs-lisp
 M-x package-install evil-lispy
 
 ;; in your config, load the code with e.g. require
@@ -41,7 +42,8 @@ M-x package-install evil-lispy
 ;; make evil-lispy start in the modes you want
 (add-hook 'emacs-lisp-mode-hook #'evil-lispy-mode)
 (add-hook 'clojure-mode-hook #'evil-lispy-mode)
-```
+#+END_SRC
+
 * Key Bindings
 To learn lispy, I suggest you see these things in order:
 - first read the [[https://github.com/abo-abo/lispy][lispy introduction]] to get an overview of what lispy offers to you
