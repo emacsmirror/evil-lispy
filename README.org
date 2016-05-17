@@ -89,16 +89,17 @@ These special bindings are active in *insert mode*:
 | ~[ and ]~   | Jump out of the current sexp (to the left / right), enter lispy-mode          |
 | ~;~         | Comment entire line, or end of line. Toggles autoload comments for elisp too. |
 
-** Lispy rebinds
-These bindings are changed from their lispy defaults. Notice how most have a useful mnemonic.
-| [[http://oremacs.com/lispy/#lispy-flow][i]] | Go ~in~ the current expression, or move past it if not possible   |
-| [[http://oremacs.com/lispy/#lispy-tab][f]] | ~fix~ indentation of the current expression                       |
-| [[http://oremacs.com/lispy/#lispy-different][o]] | Switch to the ~other~ side of the current expression or selection |
-| [[http://oremacs.com/lispy/#lispy-other-mode][d]] | ~Drag~ the current expression with the next ~hjkl~                |
+** Changes to lispy
+These bindings are different from vanilla lispy:
+| [[http://oremacs.com/lispy/#lispy-flow][i]]    | Go ~in~ the current expression, or move past it if not possible   |
+| [[http://oremacs.com/lispy/#lispy-tab][f]]    | ~fix~ indentation of the current expression                       |
+| [[http://oremacs.com/lispy/#lispy-different][o]]    | Switch to the ~other~ side of the current expression or selection |
+| [[http://oremacs.com/lispy/#lispy-other-mode][d]]    | ~Drag~ the current expression with the next ~hjkl~                |
+| ~f1~ | Display a cheat sheet for the most commonly used commands         |
 
 ** Miscellaneous
 In lispy, using ~C-u 2j~ will go down two sexps. To get the same thing in
-evil-lispy, you can use 2j (think evil/vim).
+evil-lispy, you can use ~2j~, just like in evil/vim.
 
 
 * Credits
