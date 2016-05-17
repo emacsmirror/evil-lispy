@@ -2,7 +2,6 @@
 (require 'dash)
 (require 'buttercup)
 (require 's)
-(require 'shut-up)
 
 (defun buffer-status-as-string ()
   (let ((p (point))

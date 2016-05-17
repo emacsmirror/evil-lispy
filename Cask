@@ -14,5 +14,4 @@
 (development
  (depends-on "f")
  (depends-on "buttercup")
- (depends-on "s")
- (depends-on "shut-up"))
+ (depends-on "s"))
