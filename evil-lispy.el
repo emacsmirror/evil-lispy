@@ -35,6 +35,7 @@
 
 (require 'evil)
 (require 'lispy)
+(require 'evil-lispy-help)
 
 (put 'evil-define-state 'lisp-indent-function 'defun)
 
@@ -53,7 +54,7 @@
 (evil-define-state lispy
   "An evil state for Lispy, a precision editing mode for Lisp."
   :tag "<L>"
-  :message "Entering evil-lispy state. Press ESC to get out of lispy."
+  :message "Entering evil-lispy state. Press ESC to get out and f1 for help."
   :cursor evil-lispy-cursor
   :entry-hook (evil-lispy-state-entry)
   :exit-hook (evil-lispy-state-exit)
@@ -144,6 +145,7 @@ the current form.  DIRECTION must be either 'left or 'right."
 ;; ——— Keys ————————————————————————————————————————————————————————————————————
 
 (define-key evil-lispy-state-map [escape] 'evil-normal-state)
+(define-key evil-lispy-state-map (kbd "<f1>") 'evil-lispy-show-help)
 
 ;; ——— Entering state ——————————————————
 (evil-define-key 'normal evil-lispy-mode-map
