@@ -37,8 +37,6 @@
 (require 'lispy)
 (require 'evil-lispy-help)
 
-(put 'evil-define-state 'lisp-indent-function 'defun)
-
 ;; ——— Customization ———————————————————————————————————————————————————————————
 
 (defgroup evil-lispy nil
