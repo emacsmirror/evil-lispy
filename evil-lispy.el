@@ -48,7 +48,6 @@
 
 ;; ——— State ———————————————————————————————————————————————————————————————————
 
-;;;###autoload
 (evil-define-state lispy
   "An evil state for Lispy, a precision editing mode for Lisp."
   :tag "<L>"
