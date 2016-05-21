@@ -29,6 +29,15 @@ Here is a sales pitch of what this mode thinks is best for you:
   - Lispy commands only apply when explicitly activated
   - Less chance of munging your code unexpectedly
 
+Lispy has great power, and while it comes at the cost of a lot of key bindings,
+you can get started with just a few. To this end, evil-lispy provides cheat
+sheets, such as this one for navigation commands:
+
+[[./img/navigation-cheat-sheet.png]]
+
+You can access these with `f1` while in `evil-lispy-state`. Read on for more
+information.
+
 * Installation
 Available from MELPA.
 
