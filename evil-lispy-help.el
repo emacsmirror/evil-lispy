@@ -1,3 +1,4 @@
+(require 'hydra)
 (defhydra evil-lispy-hydra ()
   "
 evil-lispy basics
