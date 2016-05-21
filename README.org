@@ -35,7 +35,7 @@ sheets, such as this one for navigation commands:
 
 [[./img/navigation-cheat-sheet.png]]
 
-You can access these with `f1` while in `evil-lispy-state`. Read on for more
+You can access these with ~f1~ while in ~evil-lispy-state~. Read on for more
 information.
 
 * Installation
