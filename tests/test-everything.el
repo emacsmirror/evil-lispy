@@ -34,15 +34,15 @@
     (-doto (with-test-buffer "hello the|re, world"
              (ot--keyboard-input
               (ot--type "mv")))
-           (expect :to-have-buffer-contents "hello ~there|, world")
-           (expect :to-be-in-lispy-mode)))
+      (expect :to-have-buffer-contents "hello ~there|, world")
+      (expect :to-be-in-lispy-mode)))
 
   (it "selects an expression"
     (-doto (with-test-buffer "(hello the|re world)"
              (ot--keyboard-input
               (ot--type "mv")))
-           (expect :to-have-buffer-contents "(hello ~there| world)")
-           (expect :to-be-in-lispy-mode)))
+      (expect :to-have-buffer-contents "(hello ~there| world)")
+      (expect :to-be-in-lispy-mode)))
 
   (it "allows entering from evil-visual-state"
     (-doto (with-test-buffer "some words |in the buffer"
@@ -50,8 +50,8 @@
               ;; select the current word
               (ot--type "viw")
               (ot--press-key "RET")))
-           (expect :to-have-buffer-contents "some words ~in| the buffer")
-           (expect :to-be-in-lispy-mode))))
+      (expect :to-have-buffer-contents "some words ~in| the buffer")
+      (expect :to-be-in-lispy-mode))))
 
 (describe "enter lispy-mode at edges of the current expression"
   (it "before an expression"
@@ -94,7 +94,7 @@
 (describe "inserting plain text"
   (it "inserts characters without any specific bindings"
     (expect (with-test-buffer "|"
-              (evil-lispy-enter-state-right)
+              (evil-lispy/enter-state-right)
               (ot--keyboard-input
                (ot--type "Y")))
             :to-have-buffer-contents "Y|")))

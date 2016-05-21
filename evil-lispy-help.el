@@ -1,7 +1,7 @@
 (require 'lispy)
 (require 'hydra)
 
-(defhydra evil-lispy-hydra ()
+(defhydra evil-lispy/hydra ()
   "
 evil-lispy basics
 
@@ -41,6 +41,6 @@ _-_: go to subword         _M_: to multiline
 
 (defun evil-lispy-show-help ()
   (interactive)
-  (evil-lispy-hydra/body))
+  (evil-lispy/hydra/body))
 
 (provide 'evil-lispy-help)

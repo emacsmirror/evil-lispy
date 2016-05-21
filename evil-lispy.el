@@ -53,20 +53,20 @@
   :tag "<L>"
   :message "Entering evil-lispy state. Press ESC to get out and f1 for help."
   :cursor evil-lispy-cursor
-  :entry-hook (evil-lispy-state-entry)
-  :exit-hook (evil-lispy-state-exit)
+  :entry-hook (evil-lispy/state-entry)
+  :exit-hook (evil-lispy/state-exit)
   nil)
 
-(defun evil-lispy-state-entry ()
+(defun evil-lispy/state-entry ()
   (remove-hook 'activate-mark-hook #'evil-visual-activate-hook t)
   (lispy-mode 1))
 
-(defun evil-lispy-state-exit ()
+(defun evil-lispy/state-exit ()
   (when (region-active-p) (deactivate-mark))
   (add-hook 'activate-mark-hook #'evil-visual-activate-hook nil t)
   (lispy-mode -1))
 
-(defun evil-lispy-enter-state (direction extra-direction)
+(defun evil-lispy/enter-state (direction extra-direction)
   "Return a lambda which enters Lispy state at the DIRECTION side of
 the current form.  DIRECTION must be either 'left or 'right."
   (let ((f (intern (concat "lispy-" (symbol-name direction))))
@@ -79,16 +79,16 @@ the current form.  DIRECTION must be either 'left or 'right."
          (when (eq (point) pos) (,g 1)))
        (evil-lispy-state))))
 
-(fset 'evil-lispy-enter-state-left (evil-lispy-enter-state 'left 'backward))
-(fset 'evil-lispy-enter-state-right (evil-lispy-enter-state 'right 'forward))
+(fset 'evil-lispy/enter-state-left (evil-lispy/enter-state 'left 'backward))
+(fset 'evil-lispy/enter-state-right (evil-lispy/enter-state 'right 'forward))
 
-(defun evil-lispy-enter-marked-state ()
+(defun evil-lispy/enter-marked-state ()
   "Enters `lispy-state' with the current symbol under point marked."
   (interactive)
   (evil-lispy-state)
   (lispy-mark-symbol))
 
-(defun evil-lispy-enter-visual-state ()
+(defun evil-lispy/enter-visual-state ()
   "If we're in visual state, enter `lispy-state' with the current region
 selected."
   (interactive)
@@ -98,12 +98,12 @@ selected."
     (evil-lispy-state)
     (set-mark (if (eq pos start) end start))))
 
-(defun evil-lispy-enter-insert-state (direction extra-direction)
+(defun evil-lispy/enter-insert-state (direction extra-direction)
   "Return a lambda which enters Insert state at the DIRECTION side of
 the current form.  DIRECTION must be either 'left or 'right."
   `(lambda ()
      (interactive)
-     (funcall (evil-lispy-enter-state ',direction ',extra-direction))
+     (funcall (evil-lispy/enter-state ',direction ',extra-direction))
      (evil-insert-state)
      (cond
       ((eq ',direction 'left)
@@ -116,12 +116,12 @@ the current form.  DIRECTION must be either 'left or 'right."
        (unless (looking-back "\s")
          (insert ?\s))))))
 
-(fset 'evil-lispy-enter-insert-state-left
-      (evil-lispy-enter-insert-state 'left 'backward))
-(fset 'evil-lispy-enter-insert-state-right
-      (evil-lispy-enter-insert-state 'right 'forward))
+(fset 'evil-lispy/enter-insert-state-left
+      (evil-lispy/enter-insert-state 'left 'backward))
+(fset 'evil-lispy/enter-insert-state-right
+      (evil-lispy/enter-insert-state 'right 'forward))
 
-(defmacro evil-lispy-defnonstring-action (function-name
+(defmacro evil-lispy/defnonstring-action (function-name
                                           action
                                           &rest args-to-action)
   "Define a function that will insert the pressed key in comments and strings,
@@ -133,10 +133,10 @@ or call ACTION (a function) otherwise, with ARGS-TO-ACTION."
          (self-insert-command arg)
        (apply (quote ,action) ,args-to-action))))
 
-(evil-lispy-defnonstring-action evil-lispy-insert-to-lispy-right
-  evil-lispy-enter-state-right)
-(evil-lispy-defnonstring-action evil-lispy-insert-to-lispy-left
-  evil-lispy-enter-state-left)
+(evil-lispy/defnonstring-action evil-lispy/insert-to-lispy-right
+                                evil-lispy/enter-state-right)
+(evil-lispy/defnonstring-action evil-lispy/insert-to-lispy-left
+                                evil-lispy/enter-state-left)
 
 ;; ——— Mode ————————————————————————————————————————————————————————————————————
 
@@ -150,7 +150,7 @@ or call ACTION (a function) otherwise, with ARGS-TO-ACTION."
 
 ;; ——— Operations ——————————————————————————————————————————————————————————————
 
-(defun evil-lispy-describe ()
+(defun evil-lispy/describe ()
   (interactive)
   (save-excursion
     (lispy-mark-symbol)
@@ -163,20 +163,20 @@ or call ACTION (a function) otherwise, with ARGS-TO-ACTION."
 
 ;; ——— Entering state ——————————————————
 (evil-define-key 'normal evil-lispy-mode-map
-  "(" #'evil-lispy-enter-state-left
-  ")" #'evil-lispy-enter-state-right
-  "mv" #'evil-lispy-enter-marked-state
-  "<i" #'evil-lispy-enter-insert-state-left
-  ">A" #'evil-lispy-enter-insert-state-right)
+  "(" #'evil-lispy/enter-state-left
+  ")" #'evil-lispy/enter-state-right
+  "mv" #'evil-lispy/enter-marked-state
+  "<i" #'evil-lispy/enter-insert-state-left
+  ">A" #'evil-lispy/enter-insert-state-right)
 
 (evil-define-key 'visual evil-lispy-mode-map
-  (kbd "RET") #'evil-lispy-enter-visual-state)
+  (kbd "RET") #'evil-lispy/enter-visual-state)
 
 ;; ——— Editing operations ——————————————
 (evil-define-key 'normal evil-lispy-mode-map
-  "K" #'evil-lispy-describe
+  "K" #'evil-lispy/describe
   (kbd "M-k") #'lispy-kill-sentence
-  (kbd "C-1") #'evil-lispy-describe
+  (kbd "C-1") #'evil-lispy/describe
   (kbd "C-2") #'lispy-arglist-inline)
 
 ;; ——— Insert operations ———————————————
@@ -191,9 +191,9 @@ or call ACTION (a function) otherwise, with ARGS-TO-ACTION."
   ";" #'lispy-comment
 
   ;; ( should always insert parentheses
-  ")" #'evil-lispy-insert-to-lispy-right
-  "[" #'evil-lispy-insert-to-lispy-left
-  "]" #'evil-lispy-insert-to-lispy-right
+  ")" #'evil-lispy/insert-to-lispy-right
+  "[" #'evil-lispy/insert-to-lispy-left
+  "]" #'evil-lispy/insert-to-lispy-right
 
   (kbd "DEL") #'lispy-delete-backward
   (kbd "M-k") #'lispy-kill-sentence
