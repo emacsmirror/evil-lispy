@@ -4,7 +4,7 @@
 
 ;; Author: Brandon Carrell <brandoncarrell@gmail.com>, Mika Vilpas <mika.vilpas@gmail.com>
 ;; URL: https://github.com/sp3ctum/evil-lispy
-;; Version: 0.0.2
+;; Version: 1.0
 ;; Keywords: lisp
 ;; Package-Requires: ((lispy "0.26.0") (evil "1.2.12") (hydra "0.13.5"))
 
