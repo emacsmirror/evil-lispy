@@ -6,7 +6,7 @@ TERM=dumb SHELL=sh cask exec emacs \
     -f package-initialize \
     -l buttercup \
     --directory "." \
-    -l *.el \
+    -l evil-lispy \
     -l "tests/setup.el" \
     -f buttercup-run-discover \
     "tests/"
