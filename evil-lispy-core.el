@@ -1,3 +1,4 @@
+(require 'lispy)
 (require 'evil)
 (require 'evil-lispy-customization)
 
