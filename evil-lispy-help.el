@@ -32,8 +32,6 @@ _-_: go to subword
   ("q" special-lispy-ace-paren)
   ("-" special-lispy-ace-subword))
 
-(evil-lispy/hydra-navigation/body)
-
 (defhydra evil-lispy/hydra ()
   "
 evil-lispy cheat sheet
