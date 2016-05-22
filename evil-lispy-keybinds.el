@@ -1,14 +1,6 @@
 (require 'lispy)
 (require 'evil-lispy-core)
 
-(defvar evil-lispy-mode-map (make-sparse-keymap))
-
-(define-minor-mode evil-lispy-mode
-  "A minor mode for integrating Evil and Lispy."
-  :lighter " evil-lispy"
-  :keymap evil-lispy-mode-map
-  :after-hook (evil-normal-state))
-
 (define-key evil-lispy-state-map [escape] 'evil-normal-state)
 (define-key evil-lispy-state-map (kbd "<f1>") 'evil-lispy-show-help)
 

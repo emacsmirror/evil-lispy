@@ -99,4 +99,13 @@ or call ACTION (a function) otherwise, with ARGS-TO-ACTION."
   :exit-hook (evil-lispy/state-exit)
   nil)
 
+(defvar evil-lispy-mode-map (make-sparse-keymap))
+
+(define-minor-mode evil-lispy-mode
+  "A minor mode for integrating Evil and Lispy."
+  :lighter " evil-lispy"
+  :keymap evil-lispy-mode-map
+  :after-hook (evil-normal-state))
+
+
 (provide 'evil-lispy-core)
