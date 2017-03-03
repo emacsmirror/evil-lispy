@@ -5,12 +5,14 @@
             :to-have-buffer-contents "hello world|"))
 
   (it "returns multiple lines as a list"
-    (expect (with-test-buffer "hello\n|world")
+    (expect (with-test-buffer (list "hello"
+                                    "|world"))
             :to-have-buffer-contents (list "hello"
                                            "|world")))
 
   (it "allows calling code in the given buffer"
-    (expect (with-test-buffer "hello\n|world"
+    (expect (with-test-buffer (list "hello"
+                                    "|world")
               ;; move cursor to end of line
               (evil-append-line 1))
             :to-have-buffer-contents (list "hello"
@@ -107,7 +109,9 @@
 
 (describe "lispy interop"
   (it "allows repeating commands with a count, like evil/vim"
-    (-doto (with-test-buffer "(expression| one)\n(expression two)\n(expression three)"
+    (-doto (with-test-buffer (list "(expression| one)"
+                                   "(expression two)"
+                                   "(expression three)")
              (ot--keyboard-input
               (ot--type ")2j")))
       (expect :to-have-buffer-contents '("(expression one)"
