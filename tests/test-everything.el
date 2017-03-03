@@ -72,24 +72,24 @@
              (evil-insert-state)
              (ot--keyboard-input
               (ot--type ")")))
-           (expect :to-have-buffer-contents "(expression one)|")
-           (expect :to-be-in-lispy-mode)))
+      (expect :to-have-buffer-contents "(expression one)|")
+      (expect :to-be-in-lispy-mode)))
 
   (it "jumps to the left with ["
     (-doto (with-test-buffer "(hello| world)"
              (evil-insert-state)
              (ot--keyboard-input
               (ot--type "[")))
-           (expect :to-have-buffer-contents "|(hello world)")
-           (expect :to-be-in-lispy-mode)))
+      (expect :to-have-buffer-contents "|(hello world)")
+      (expect :to-be-in-lispy-mode)))
 
   (it "jumps to the right with ]"
     (-doto (with-test-buffer "(hello| world)"
              (evil-insert-state)
              (ot--keyboard-input
               (ot--type "]")))
-           (expect :to-have-buffer-contents "(hello world)|")
-           (expect :to-be-in-lispy-mode))))
+      (expect :to-have-buffer-contents "(hello world)|")
+      (expect :to-be-in-lispy-mode))))
 
 (describe "inserting plain text"
   (it "inserts characters without any specific bindings"
@@ -104,7 +104,7 @@
     (-doto (with-test-buffer "(expression| one)\n(expression two)\n(expression three)"
              (ot--keyboard-input
               (ot--type ")2j")))
-           (expect :to-have-buffer-contents '("(expression one)"
-                                              "(expression two)"
-                                              "(expression three)|"))
-           (expect :to-be-in-lispy-mode))))
+      (expect :to-have-buffer-contents '("(expression one)"
+                                         "(expression two)"
+                                         "(expression three)|"))
+      (expect :to-be-in-lispy-mode))))
