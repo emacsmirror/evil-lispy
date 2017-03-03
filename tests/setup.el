@@ -22,6 +22,14 @@
         (-first-item result-lines)
       result-lines)))
 
+(defun insert-one-or-many-lines (input)
+  (cond ((stringp input)
+         (insert input))
+        (t ;; it's a list
+         (--each input (insert it "\n"))
+         ;; remove last extra newline
+         (backward-delete-char 1))))
+
 (defmacro with-test-buffer (contents &rest test-forms)
   "This awesome macro is adapted (borrowed) from
   https://github.com/abo-abo/lispy/blob/master/lispy-test.el#L15"
@@ -36,7 +44,7 @@
          (evil-mode)
          (evil-lispy-mode)
 
-         (insert ,contents)
+         (insert-one-or-many-lines ,contents)
 
          (evil-goto-first-line)
          (when (search-forward "|")

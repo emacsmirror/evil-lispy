@@ -14,7 +14,13 @@
               ;; move cursor to end of line
               (evil-append-line 1))
             :to-have-buffer-contents (list "hello"
-                                           "world|"))))
+                                           "world|")))
+
+  (it "allows inserting multiple lines in a list"
+    (expect (with-test-buffer
+                (list "hello" "|world"))
+            :to-have-buffer-contents (list "hello"
+                                           "|world"))))
 
 (describe "when inside an expression, enter insert mode at start or end"
   (it "allows inserting at the start"
