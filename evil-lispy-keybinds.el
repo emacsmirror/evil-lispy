@@ -7,7 +7,7 @@
 (evil-define-key 'normal evil-lispy-mode-map
   "(" #'evil-lispy/enter-state-left
   ")" #'evil-lispy/enter-state-right
-  "mv" #'evil-lispy/enter-marked-state
+  (kbd "C-SPC") #'evil-lispy/enter-marked-state
   "<i" #'evil-lispy/enter-insert-state-left
   ">A" #'evil-lispy/enter-insert-state-right)
 

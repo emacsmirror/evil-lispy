@@ -5,14 +5,13 @@
 
 (defun buffer-status-as-string ()
   (let ((p (point))
-        (m (mark)))
-    ;; show mark as well (other side of selection, if any)
+        (m (when mark-active (mark))))
     (goto-char p)
     (insert "|")
 
     ;; show mark as well (other side of selection, if any)
-    (when mark-active
-      (goto-char (mark))
+    (when m
+      (goto-char m)
       (insert "~")))
 
   (let ((result-lines (->> (buffer-substring-no-properties (point-min)
@@ -58,11 +57,11 @@
                                                     expected-contents)
   (with-current-buffer test-buffer
     (let ((contents (buffer-status-as-string)))
-      (buttercup--apply-matcher :to-equal `(,contents ,expected-contents)))))
+      (buttercup--apply-matcher :to-equal (list contents expected-contents)))))
 
 (buttercup-define-matcher :to-be-in-lispy-mode (test-buffer)
   (with-current-buffer test-buffer
-    (buttercup--apply-matcher :to-be-truthy `(,lispy-mode))))
+    (buttercup--apply-matcher :to-be-truthy (list lispy-mode))))
 
 ;; these are borrowed from omnisharp-emacs
 ;;

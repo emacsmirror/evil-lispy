@@ -41,14 +41,14 @@
   (it "selects a symbol"
     (-doto (with-test-buffer "hello the|re, world"
              (ot--keyboard-input
-              (ot--type "mv")))
+              (ot--press-key "C-SPC")))
       (expect :to-have-buffer-contents "hello ~there|, world")
       (expect :to-be-in-lispy-mode)))
 
   (it "selects an expression"
     (-doto (with-test-buffer "(hello the|re world)"
              (ot--keyboard-input
-              (ot--type "mv")))
+              (ot--press-key "C-SPC")))
       (expect :to-have-buffer-contents "(hello ~there| world)")
       (expect :to-be-in-lispy-mode)))
 
@@ -59,7 +59,28 @@
               (ot--type "viw")
               (ot--press-key "RET")))
       (expect :to-have-buffer-contents "some words ~in| the buffer")
-      (expect :to-be-in-lispy-mode))))
+      (expect :to-be-in-lispy-mode)))
+
+  (it "allows using evil-mode marks normally"
+    ;; we used to have a binding for mv (mark current thing).
+    ;; this caused all evil-mode marks to be unusable.
+    (-doto (with-test-buffer (list "line one"
+                                   "line |two")
+             (ot--keyboard-input
+              ;; set an evil-mode mark named a at point
+              (ot--type "ma")
+              ;; move to the beginning and jump back to that mark.
+              ;;
+              ;; note that this actually jumps to the beginning of the marked
+              ;; line
+              (ot--type "gg'a")
+              (evil-normal-state 1)))
+      ;; strangely enough it seems an evil-mode mark is the same as having a
+      ;; visual selection.
+      ;; It's not that important for this test though, so tolerate this error
+      ;; here.
+      (expect :to-have-buffer-contents (list "line one"
+                                             "|line~ two")))))
 
 (describe "enter lispy-mode at edges of the current expression"
   (it "before an expression"
