@@ -19,7 +19,7 @@ Here is a sales pitch of what this mode thinks is best for you:
   - Natural to navigate structurally
 - You will want to use structural editing when possible, and fallback to
   familiar Evil commands.
-  - With evil-lispy, use ~hjkl~ for moving, ~mv~ to select, ~e~ to eval.
+  - With evil-lispy, use ~hjkl~ for moving, ~C-SPC~ (control+space) to select, ~e~ to eval.
     Intuitive for Evil / vim users. You now know the basics!
 - Natural and easy fallback to vanilla Evil editing
   - If you panic, just hit ~ESC~ to return to normal mode
@@ -66,7 +66,7 @@ Enter ~evil-lispy-mode~ mode *from normal mode* with the following commands:
 |-------------+------------------------------------------------------------|
 | ~(~         | jump to the previous parenthesis and enter evil-lispy-mode |
 | ~)~         | same, but jump to the next parenthesis instead             |
-| ~mv~        | select current symbol/expression and enter evil-lispy-mode |
+| ~C-SPC~     | select current symbol/expression and enter evil-lispy-mode |
 | ~<i~        | insert at the start, inside, like so: ~($ foo)~            |
 | ~>A~        | insert at the end, inside, like so: ~(foo $)~              |
 

@@ -5,14 +5,13 @@
 
 (defun buffer-status-as-string ()
   (let ((p (point))
-        (m (mark)))
-    ;; show mark as well (other side of selection, if any)
+        (m (when mark-active (mark))))
     (goto-char p)
     (insert "|")
 
     ;; show mark as well (other side of selection, if any)
-    (when mark-active
-      (goto-char (mark))
+    (when m
+      (goto-char m)
       (insert "~")))
 
   (let ((result-lines (->> (buffer-substring-no-properties (point-min)
@@ -21,6 +20,14 @@
     (if (= 1 (length result-lines))
         (-first-item result-lines)
       result-lines)))
+
+(defun insert-one-or-many-lines (input)
+  (cond ((stringp input)
+         (insert input))
+        (t ;; it's a list
+         (--each input (insert it "\n"))
+         ;; remove last extra newline
+         (backward-delete-char 1))))
 
 (defmacro with-test-buffer (contents &rest test-forms)
   "This awesome macro is adapted (borrowed) from
@@ -36,7 +43,7 @@
          (evil-mode)
          (evil-lispy-mode)
 
-         (insert ,contents)
+         (insert-one-or-many-lines ,contents)
 
          (evil-goto-first-line)
          (when (search-forward "|")
@@ -50,11 +57,11 @@
                                                     expected-contents)
   (with-current-buffer test-buffer
     (let ((contents (buffer-status-as-string)))
-      (buttercup--apply-matcher :to-equal `(,contents ,expected-contents)))))
+      (buttercup--apply-matcher :to-equal (list contents expected-contents)))))
 
 (buttercup-define-matcher :to-be-in-lispy-mode (test-buffer)
   (with-current-buffer test-buffer
-    (buttercup--apply-matcher :to-be-truthy `(,lispy-mode))))
+    (buttercup--apply-matcher :to-be-truthy (list lispy-mode))))
 
 ;; these are borrowed from omnisharp-emacs
 ;;
