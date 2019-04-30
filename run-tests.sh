@@ -1,4 +1,9 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
+
+set +x # show executed commands
+set +e # exit on error
+
+cask
 
 TERM=dumb SHELL=sh cask exec emacs \
     -Q \
