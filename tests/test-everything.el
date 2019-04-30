@@ -35,6 +35,10 @@
     (expect (with-test-buffer "(foo-foo-|foo)"
               (ot--keyboard-input
                (ot--type ">A")))
+            :to-have-buffer-contents "(foo-foo-foo |)")
+    (expect (with-test-buffer "(foo-foo-|foo)"
+              (ot--keyboard-input
+               (ot--type ">a")))
             :to-have-buffer-contents "(foo-foo-foo |)")))
 
 (describe "entering lispy marked state"
