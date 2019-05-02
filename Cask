@@ -8,7 +8,6 @@
 (files ("*.el"
         (:exclude ".dir-locals.el")))
 
-(depends-on "shut-up")
 (depends-on "evil")
 (depends-on "lispy")
 

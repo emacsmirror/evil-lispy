@@ -1,3 +1,4 @@
 language: emacs-lisp
 script:
+  - ./test-docker-compose build --no-cache test-emacs
   - ./test-docker-compose run --rm test-emacs ./run-tests.sh
