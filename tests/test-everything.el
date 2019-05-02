@@ -83,8 +83,8 @@
       ;; visual selection.
       ;; It's not that important for this test though, so tolerate this error
       ;; here.
-      (expect :to-have-buffer-contents (list "line one"
-                                             "|line~ two")))))
+      (expect :to-have-buffer-contents (list "~line one"
+                                             "|line two")))))
 
 (describe "enter lispy-mode at edges of the current expression"
   (it "before an expression"
