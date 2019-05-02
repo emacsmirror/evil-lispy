@@ -11,5 +11,4 @@
  (depends-on "dash")
  (depends-on "cl")
  (depends-on "buttercup")
- (depends-on "s")
- (depends-on "f"))
+ (depends-on "s"))
