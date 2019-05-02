@@ -9,7 +9,8 @@
   ")" #'evil-lispy/enter-state-right
   (kbd "C-SPC") #'evil-lispy/enter-marked-state
   "<i" #'evil-lispy/enter-insert-state-left
-  ">A" #'evil-lispy/enter-insert-state-right)
+  ">A" #'evil-lispy/enter-insert-state-right
+  ">a" #'evil-lispy/enter-insert-state-right)
 
 (evil-define-key 'visual evil-lispy-mode-map
   (kbd "RET") #'evil-lispy/enter-visual-state)

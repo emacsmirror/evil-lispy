@@ -35,6 +35,10 @@
     (expect (with-test-buffer "(foo-foo-|foo)"
               (ot--keyboard-input
                (ot--type ">A")))
+            :to-have-buffer-contents "(foo-foo-foo |)")
+    (expect (with-test-buffer "(foo-foo-|foo)"
+              (ot--keyboard-input
+               (ot--type ">a")))
             :to-have-buffer-contents "(foo-foo-foo |)")))
 
 (describe "entering lispy marked state"
@@ -79,8 +83,8 @@
       ;; visual selection.
       ;; It's not that important for this test though, so tolerate this error
       ;; here.
-      (expect :to-have-buffer-contents (list "line one"
-                                             "|line~ two")))))
+      (expect :to-have-buffer-contents (list "~line one"
+                                             "|line two")))))
 
 (describe "enter lispy-mode at edges of the current expression"
   (it "before an expression"

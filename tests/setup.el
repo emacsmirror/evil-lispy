@@ -1,5 +1,6 @@
 (require 'evil-lispy)
 (require 'dash)
+(require 'cl)
 (require 'buttercup)
 (require 's)
 
@@ -55,13 +56,20 @@
 
 (buttercup-define-matcher :to-have-buffer-contents (test-buffer
                                                     expected-contents)
+  (setq test-buffer (funcall test-buffer))
+  (setq expected-contents (funcall expected-contents))
   (with-current-buffer test-buffer
     (let ((contents (buffer-status-as-string)))
-      (buttercup--apply-matcher :to-equal (list contents expected-contents)))))
+      (if (equal contents expected-contents)
+          t
+        `(nil . ,(format "Expected '%s' to equal '%s'."
+                         (apply 's-concat contents)
+                         (apply 's-concat expected-contents)))))))
 
 (buttercup-define-matcher :to-be-in-lispy-mode (test-buffer)
+  (setq test-buffer (funcall test-buffer))
   (with-current-buffer test-buffer
-    (buttercup--apply-matcher :to-be-truthy (list lispy-mode))))
+    lispy-mode))
 
 ;; these are borrowed from omnisharp-emacs
 ;;

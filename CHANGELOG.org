@@ -1,4 +1,6 @@
 
+* 2019-04-30
+  - add alternative ~>a~ binding for "insert at end of current expression"
 
 * 2017-03-04
 - remap selecting the current thing/symbol from ~mv~ to ~C-SPC~ (control+space).
