@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
-set +x # show executed commands
-set +e # exit on error
+set -x # show executed commands
+set -e # exit on error
 
 cask
 
